@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.licenses = ["MIT"]
   gem.files = `git ls-files`.split($/)
   gem.require_paths = ["lib"]
-  gem.summary = "A nanoc filter that can compile textual content with webpack"
+  gem.summary = "A nanoc filter that can compile textual items with webpack"
   gem.description = gem.summary
   gem.add_development_dependency "yard", "~> 0.9"
   gem.add_development_dependency "redcarpet", "~> 3.5"
