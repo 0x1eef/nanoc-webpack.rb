@@ -18,7 +18,7 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
   def webpack(file)
     system "node",
            "./node_modules/webpack/bin/webpack.js",
-           "--entry", File.join("./src", item.identifier.to_s),
+           "--entry", File.join(Dir.getwd, content_dir, item.identifier.to_s),
            "--output-path", File.dirname(file.path),
            "--output-filename", File.basename(file.path)
     if $?.success?
@@ -35,5 +35,13 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
     file = Tempfile.new(File.basename(item.identifier.to_s), dir)
     file.write(content)
     file.tap(&:flush)
+  end
+
+  def content_dir
+    @content_dir ||= begin
+      nanoc = Ryo.from(config.each.to_h)
+      source = nanoc.data_sources.find(&:content_dir)
+      source&.content_dir || "content/"
+    end
   end
 end
