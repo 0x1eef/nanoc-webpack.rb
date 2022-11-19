@@ -1,7 +1,7 @@
 ## About
 
 nanoc-webpack.rb is a [nanoc](https://github.com/nanoc/nanoc#readme) filter
-that can compile textual content with [webpack](https://webpack.js.org/).
+that can compile textual items with [webpack](https://webpack.js.org/).
 nanoc-webpack.rb aims to bring the benefits of JavaScript, TypeScript and
 the webpack ecosystem to nanoc-powered websites.
 
