@@ -24,7 +24,7 @@ The basic principle that nanoc-webpack.rb is built on is that it will take an
 entry point as its input, and produce a webpack bundle as its output. Configuration
 that goes beyond that happens in `webpack.config.js`. When [TypeScript](https://www.typescriptlang.org/) 
 or [Babel](https://babeljs.io/) are being used it will often make sense to have 
-configuration files for TypeScript and babel as well.
+configuration files for TypeScript and Babel as well.
 
 ### TypeScript
 
