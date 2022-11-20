@@ -25,7 +25,7 @@ entry point as its input, and produce a webpack bundle as its output. Configurat
 that goes beyond that happens in `webpack.config.js`.
 
 When [TypeScript](https://www.typescriptlang.org/) or [babel](https://babeljs.io/)
-are being used then it will often make sense to have configuration files for TypeScript
+are being used it will often make sense to have configuration files for TypeScript
 and babel as well.
 
 ### TypeScript
