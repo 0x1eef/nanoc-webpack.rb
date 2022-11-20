@@ -65,7 +65,30 @@ compile "/js/ReactApp.jsx" do
   filter(:webpack)
   write("/js/app.js")
 end
+```
 
+### Track dependencies
+
+Typically nanoc will only be aware of an entry point, and remain unaware of the
+files it requires, or imports.
+
+The `depend_on` filter option can be used to make nanoc aware of files that an
+entry point requires, or imports. When one of those files change, nanoc will recompile
+the entry point with webpack.
+
+It is recommended to keep entry points in a directory separate to the files they depend
+on. It is worth spending some time thinking about a directory layout that works best
+when a site can have multiple entry points that have distinct, and/or shared dependencies.
+
+With that said, the following example demonstrates how the `depend_on` option might be used:
+
+```ruby
+# Rules
+require "nanoc-webpack"
+compile "/js/ReactApp.jsx" do
+  filter(:webpack, depend_on: ["/js/{lib,components,hooks}/**/*.jsx"])
+  write("/js/app.js")
+end
 ```
 
 ## Sources
