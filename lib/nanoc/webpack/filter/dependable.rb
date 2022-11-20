@@ -10,7 +10,7 @@ module Nanoc::Webpack::Filter::Dependable
   def expand(path)
     abs_path = File.join(Dir.getwd, content_dir)
     glob_str = File.expand_path(File.join(abs_path, path))
-    Dir.glob(glob_str).map { _1.sub(abs_path, "").prepend("/") }
+    Dir.glob(glob_str).map { File.join("/", _1.sub(abs_path, "")) }
   end
 
   def content_dir
