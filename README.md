@@ -69,7 +69,7 @@ With that said, the following example demonstrates how the `depend_on` option mi
 # Rules
 require "nanoc-webpack"
 compile "/js/ReactApp.jsx" do
-  filter(:webpack, depend_on: ["/js/{lib,components,hooks}/**/*.jsx"])
+  filter(:webpack, depend_on: ["/js/{lib,components,hooks}/**/*.{js,jsx}"])
   write("/js/app.js")
 end
 ```
