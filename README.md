@@ -52,12 +52,11 @@ compile "/js/ReactApp.jsx" do
 end
 ```
 
-### Dependencies
+### Options
 
-Typically nanoc will only be aware of an entry point, and remain unaware of the
-files it requires, or imports. The `depend_on` option can be used to make
-nanoc aware of files that an entry point requires, or imports. When a file being
-tracked by the `depend_on` option changes, nanoc will recompile the entry point.
+The `depend_on` option can be used to make nanoc aware of files that an entry point requires, 
+or imports. When a file being tracked by the `depend_on` option changes, nanoc will recompile 
+the entry point.
 
 It is recommended to keep entry points in a directory separate to the files they depend
 on. It is worth spending some time to think about a directory layout that works best
