@@ -28,19 +28,6 @@ When [TypeScript](https://www.typescriptlang.org/) or [babel](https://babeljs.io
 are being used then it will often make sense to have configuration files for TypeScript
 and babel as well.
 
-### JavaScript
-
-The following example demonstrates how to compile a JavaScript file with webpack:
-
-```ruby
-# Rules
-require "nanoc-webpack"
-compile "/js/app.js" do
-  filter(:webpack)
-  write("/js/app.js")
-end
-```
-
 ### TypeScript
 
 The following example demonstrates how to compile a TypeScript file with webpack:
@@ -54,7 +41,7 @@ compile "/js/app.ts" do
 end
 ```
 
-### React (JSX)
+### JavaScript, React, JSX
 
 The following example demonstrates how to compile a React component with webpack:
 
@@ -67,7 +54,7 @@ compile "/js/ReactApp.jsx" do
 end
 ```
 
-### Track dependencies
+### Dependencies
 
 Typically nanoc will only be aware of an entry point, and remain unaware of the
 files it requires, or imports. The `depend_on` filter option can be used to make
