@@ -70,11 +70,9 @@ end
 ### Track dependencies
 
 Typically nanoc will only be aware of an entry point, and remain unaware of the
-files it requires, or imports.
-
-The `depend_on` filter option can be used to make nanoc aware of files that an
-entry point requires, or imports. When one of those files change, nanoc will recompile
-the entry point with webpack.
+files it requires, or imports. The `depend_on` filter option can be used to make
+nanoc aware of files that an entry point requires, or imports. When one of those
+files change, nanoc will recompile the entry point.
 
 It is recommended to keep entry points in a directory separate to the files they depend
 on. It is worth spending some time thinking about a directory layout that works best
