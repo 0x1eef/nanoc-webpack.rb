@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     nanoc-webpack.rb (0.1.0)
+      ryo.rb (~> 0.3)
 
 GEM
   remote: https://rubygems.org/
@@ -96,6 +97,7 @@ GEM
     rubocop-rspec (2.15.0)
       rubocop (~> 1.33)
     ruby-progressbar (1.11.0)
+    ryo.rb (0.3.0)
     slow_enumerator_tools (1.1.0)
     standard (1.18.0)
       rubocop (= 1.39.0)

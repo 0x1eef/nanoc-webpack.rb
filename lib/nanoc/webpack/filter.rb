@@ -3,13 +3,15 @@
 ##
 # Compiles a textual nanoc item with webpack.
 class Nanoc::Webpack::Filter < Nanoc::Filter
+  require_relative "filter/dependable"
   include FileUtils
+  include Dependable
 
   identifier :webpack
   type :text
-  always_outdated
 
   def run(content, options = {})
+    depend_on dependable(paths: options[:depend_on])
     webpack(temp_file(content))
   end
 
@@ -18,7 +20,7 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
   def webpack(file)
     system "node",
            "./node_modules/webpack/bin/webpack.js",
-           "--entry", File.join(Dir.getwd, content_dir, item.identifier.to_s),
+           "--entry", File.join(Dir.getwd, item.attributes[:content_filename]),
            "--output-path", File.dirname(file.path),
            "--output-filename", File.basename(file.path)
     if $?.success?
@@ -35,13 +37,5 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
     file = Tempfile.new(File.basename(item.identifier.to_s), dir)
     file.write(content)
     file.tap(&:flush)
-  end
-
-  def content_dir
-    @content_dir ||= begin
-      nanoc = Ryo.from(config.each.to_h)
-      source = nanoc.data_sources.find(&:content_dir)
-      source&.content_dir || "content/"
-    end
   end
 end
