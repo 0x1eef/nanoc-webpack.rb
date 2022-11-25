@@ -26,7 +26,8 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
     if $?.success?
       File.read(file.path).tap { file.tap(&:unlink).close }
     else
-      file.tap(&:unlink).close
+      rm_f Dir.glob(File.join(File.dirname(file.path), "*"))
+      file.close
       exit!($?.exitstatus)
     end
   end
