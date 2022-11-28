@@ -4,6 +4,7 @@
 # Compiles a textual nanoc item with webpack.
 class Nanoc::Webpack::Filter < Nanoc::Filter
   require_relative "filter/dependable"
+  Error = Class.new(RuntimeError)
   include FileUtils
   include Dependable
 
@@ -28,7 +29,7 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
     else
       rm_f Dir.glob(File.join(File.dirname(file.path), "*"))
       file.close
-      exit!($?.exitstatus)
+      raise Error, "webpack.js exited unsuccessfully (exit code: #{$?.exitstatus})", []
     end
   end
 
