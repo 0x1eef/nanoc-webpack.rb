@@ -54,11 +54,7 @@ end
 
 The `depend_on` option can be used to make nanoc aware of files that an entry point requires, 
 or imports. When a file being tracked by the `depend_on` option changes, nanoc will recompile 
-the entry point.
-
-It is worth spending some time to think about a directory layout that works best
-for a site can have multiple entry points with distinct, and/or shared dependencies. The 
-following example demonstrates how the `depend_on` option might be used:
+the entry point. The following example demonstrates how the `depend_on` option might be used:
 
 ```ruby
 # Rules
