@@ -22,9 +22,7 @@ nanoc-webpack.rb makes a few assumptions:
 
 The basic principle that nanoc-webpack.rb is built on is that it will take an
 entry point as its input, and produce a webpack bundle as its output. Configuration
-that goes beyond that happens in `webpack.config.js`. When [TypeScript](https://www.typescriptlang.org/)
-or [Babel](https://babeljs.io/) are being used it will often make sense to have
-configuration files for TypeScript and Babel as well.
+that goes beyond that happens in `webpack.config.js`. 
 
 ### TypeScript
 
@@ -58,11 +56,9 @@ The `depend_on` option can be used to make nanoc aware of files that an entry po
 or imports. When a file being tracked by the `depend_on` option changes, nanoc will recompile 
 the entry point.
 
-It is recommended to keep entry points in a directory separate to the files they depend
-on. It is worth spending some time to think about a directory layout that works best
-for a site can have multiple entry points with distinct, and/or shared dependencies.
-
-With that said, the following example demonstrates how the `depend_on` option might be used:
+It is worth spending some time to think about a directory layout that works best
+for a site can have multiple entry points with distinct, and/or shared dependencies. The 
+following example demonstrates how the `depend_on` option might be used:
 
 ```ruby
 # Rules
