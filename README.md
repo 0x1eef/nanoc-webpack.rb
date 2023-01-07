@@ -22,7 +22,7 @@ nanoc-webpack.rb makes a few assumptions:
 
 The basic principle that nanoc-webpack.rb is built on is that it will take an
 entry point as its input, and produce a webpack bundle as its output. Configuration
-that goes beyond that happens in `webpack.config.js`. 
+that goes beyond that happens in `webpack.config.js`.
 
 ### TypeScript
 
@@ -52,15 +52,20 @@ end
 
 ### Options
 
-The `depend_on` option can be used to make nanoc aware of files that an entry point requires, 
-or imports. When a file being tracked by the `depend_on` option changes, nanoc will recompile 
-the entry point. The following example demonstrates how the `depend_on` option might be used:
+The `depend_on` option can be used to make nanoc aware of files that an entry
+point requires, or imports. When a file being tracked by the `depend_on` option
+changes, nanoc will recompile the entry point.
+
+The `depend_on` option accepts an array of paths; when a path references a directory,
+the directory is walked recursively for files, and other directories. Glob patterns
+are also supported. The following is an example of how the `depend_on` option might
+be used:
 
 ```ruby
 # Rules
 require "nanoc-webpack"
 compile "/js/ReactApp.jsx" do
-  filter(:webpack, depend_on: ["/js/{lib,components,hooks}/**/*.{js,jsx}"])
+  filter(:webpack, depend_on: ["/js/lib", "/js/components", "/js/hooks"]
   write("/js/app.js")
 end
 ```
