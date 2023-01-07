@@ -10,12 +10,14 @@ inherit_gem:
   standard: config/base.yml
 
 ##
-# Extra cops
+# Style
 Style/FrozenStringLiteralComment:
   Enabled: true
+Style/LambdaCall:
+  Enabled: false
 
 ##
-# Disabled cops (rspec-specific)
+# RSpec
 RSpec/FilePath:
   Enabled: false
 RSpec/NestedGroups:
@@ -26,12 +28,30 @@ RSpec/EmptyLineAfterHook:
   Enabled: false
 RSpec/EmptyLineAfterSubject:
   Enabled: false
+RSpec/DescribedClass:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/EmptyLineAfterFinalLet:
+  Enabled: false
+RSpec/DescribeClass:
+  Enabled: false
+RSpec/ImplicitSubject:
+  Enabled: false
 
 ##
-# Disabled cops (lib-specific)
+# Layouut
 Layout/MultilineMethodCallIndentation:
-  Enabled: false
-Layout/ArgumentAlignment:
-  Enabled: false
-Style/TrivialAccessors:
-  Enabled: false
+  Enabled: true
+Layout/FirstArrayElementIndentation:
+  Enabled: true
+Layout/ArrayAlignment:
+  Enabled: true
+
+##
+# Lint
+Lint/AssignmentInCondition:
+  Enabled: true
+
+AllCops:
+  TargetRubyVersion: 3.1
