@@ -3,7 +3,8 @@
 nanoc-webpack.rb is a [nanoc](https://github.com/nanoc/nanoc#readme) filter
 that can compile textual items with [webpack](https://webpack.js.org/).
 nanoc-webpack.rb aims to bring the benefits of JavaScript, TypeScript and
-the webpack ecosystem to nanoc-powered websites.
+the webpack ecosystem to nanoc-powered websites.  nanoc-webpack.rb is distributed
+as a RubyGem through its git repositories. See [INSTALL](#install) for details.
 
 ## Requirements
 
@@ -18,15 +19,15 @@ nanoc-webpack.rb makes a few assumptions:
 
 ## Examples
 
-### Introduction
+### Introduction 
 
 The basic principle that nanoc-webpack.rb is built on is that it will take an
 entry point as its input, and produce a webpack bundle as its output. Configuration
-that goes beyond that happens in `webpack.config.js`.
+that goes beyond that should be placed in `webpack.config.js`.
 
 ### TypeScript
 
-The following example demonstrates how to compile a TypeScript file with webpack:
+An example of how to compile a TypeScript file with webpack:
 
 ``` ruby
 # Rules
@@ -37,9 +38,9 @@ compile "/js/app.ts" do
 end
 ```
 
-### JavaScript, React, JSX
+### React, JSX
 
-The following example demonstrates how to compile a React component with webpack:
+An example of how to compile a React component with webpack:
 
 ```ruby
 # Rules
@@ -50,7 +51,7 @@ compile "/js/ReactApp.jsx" do
 end
 ```
 
-### Options
+### Filter options
 
 The `depend_on` option can be used to make nanoc aware of files that an entry
 point requires, or imports. When a file being tracked by the `depend_on` option
@@ -75,11 +76,19 @@ end
 * [Source code (GitHub)](https://github.com/0x1eef/nanoc-webpack.rb)
 * [Source code (GitLab)](https://gitlab.com/0x1eef/nanoc-webpack.rb)
 
-## Install
+## <a id='install'>Install</a>
 
-nanoc-webpack.rb is available as a RubyGem:
+nanoc-webpack.rb is distributed as a RubyGem through its git repositories. <br>
+[GitHub](https://github.com/0x1eef/nanoc-webpack.rb),
+and
+[GitLab](https://gitlab.com/0x1eef/nanoc-webpack.rb)
+are available as sources.
 
-    gem install nanoc-webpack.rb
+### Gemfile
+
+```ruby
+gem "nanoc-webpack.rb", git: "https://github.com/0x1eef/nanoc-webpack.rb.git", tag: "v0.1.3"
+```
 
 ## License
 
