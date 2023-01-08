@@ -84,11 +84,11 @@ and
 [GitLab](https://gitlab.com/0x1eef/nanoc-webpack.rb)
 are available as sources.
 
-### Gemfile
+**Gemfile**
 
 ```ruby
-gem "nanoc-webpack.rb", git: "https://github.com/0x1eef/nanoc-webpack.rb.git", tag: "v0.1.5"
-gem "ryo.rb", git: "https://github.com/0x1eef/ryo.rb.git", tag: "v0.3.0"
+gem "nanoc-webpack.rb", github: "0x1eef/nanoc-webpack.rb", tag: "v0.1.5"
+gem "ryo.rb", github: "0x1eef/ryo.rb", tag: "v0.3.0"
 ```
 
 ## License
