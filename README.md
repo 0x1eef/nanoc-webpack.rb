@@ -23,7 +23,7 @@ nanoc-webpack.rb makes a few assumptions:
 
 The basic principle that nanoc-webpack.rb is built on is that it will take an
 entry point as its input, and produce a webpack bundle as its output. Configuration
-that goes beyond that should be placed in `webpack.config.js`.
+that goes beyond that happens in `webpack.config.js`.
 
 ### TypeScript
 
