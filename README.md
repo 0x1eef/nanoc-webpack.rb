@@ -84,7 +84,7 @@ are available as sources.
 **Gemfile**
 
 ```ruby
-gem "nanoc-webpack.rb", github: "0x1eef/nanoc-webpack.rb", tag: "v0.1.5"
+gem "nanoc-webpack.rb", github: "0x1eef/nanoc-webpack.rb", tag: "v0.1.6"
 gem "ryo.rb", github: "0x1eef/ryo.rb", tag: "v0.3.0"
 ```
 
