@@ -3,8 +3,14 @@
 nanoc-webpack.rb is a [nanoc](https://github.com/nanoc/nanoc#readme) filter
 that can compile textual items with [webpack](https://webpack.js.org/).
 nanoc-webpack.rb aims to bring the benefits of JavaScript, TypeScript and
-the webpack ecosystem to nanoc-powered websites.  nanoc-webpack.rb is distributed
-as a RubyGem through its git repositories. See [INSTALL](#install) for details.
+the webpack ecosystem to nanoc-powered websites.
+
+The basic principle that nanoc-webpack.rb is built on is that it will
+take an entry point as its input, and produce a webpack bundle as its
+output. Configuration that goes beyond that happens in `webpack.config.js`.
+
+nanoc-webpack.rb is distributed as a RubyGem through its git repositories.
+See [INSTALL](#install) for details.
 
 ## Requirements
 
@@ -18,12 +24,6 @@ nanoc-webpack.rb makes a few assumptions:
 * `webpack` exists as a dependency in `package.json`.
 
 ## Examples
-
-### Introduction 
-
-The basic principle that nanoc-webpack.rb is built on is that it will take an
-entry point as its input, and produce a webpack bundle as its output. Configuration
-that goes beyond that happens in `webpack.config.js`.
 
 ### TypeScript
 
