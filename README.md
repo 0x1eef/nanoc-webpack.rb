@@ -7,9 +7,7 @@ the webpack ecosystem to nanoc-powered websites.
 
 nanoc-webpack.rb is built on the idea that it will take an entry point
 as its input, and produce a webpack bundle as its output. Configuration
-that goes beyond that should go into `webpack.config.js`. nanoc-webpack.rb
-is distributed as a RubyGem through its git repositories. See [INSTALL](#install)
-for details.
+that goes beyond that should be maintained in `webpack.config.js`.
 
 ## Requirements
 
