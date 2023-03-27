@@ -65,7 +65,7 @@ end
 ```
 
 The `depend_on` option can be combined with the `reject` option to exclude
-paths from the result set. For example, you might want to include `/js/lib/`
+paths from the result set. For example, you might want to track `/js/lib/`
 minus one of the directories within `/js/lib/`:
 
 ```ruby
