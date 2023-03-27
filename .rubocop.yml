@@ -9,15 +9,22 @@ require:
 inherit_gem:
   standard: config/base.yml
 
+AllCops:
+  TargetRubyVersion: 3.2
+  Include:
+    - 'lib/*.rb'
+    - 'lib/**/*.rb'
+    - 'spec/*.rb'
+
 ##
-# Style
+# Enabled
 Style/FrozenStringLiteralComment:
   Enabled: true
-Style/LambdaCall:
+Layout/ArrayAlignment:
   Enabled: false
 
 ##
-# RSpec
+# Disabled
 RSpec/FilePath:
   Enabled: false
 RSpec/NestedGroups:
@@ -38,20 +45,9 @@ RSpec/DescribeClass:
   Enabled: false
 RSpec/ImplicitSubject:
   Enabled: false
-
-##
-# Layouut
+Style/LambdaCall:
+  Enabled: false
 Layout/MultilineMethodCallIndentation:
-  Enabled: true
-Layout/FirstArrayElementIndentation:
-  Enabled: true
-Layout/ArrayAlignment:
-  Enabled: true
-
-##
-# Lint
-Lint/AssignmentInCondition:
-  Enabled: true
-
-AllCops:
-  TargetRubyVersion: 3.1
+  Enabled: false
+Layout/ArgumentAlignment:
+  Enabled: false

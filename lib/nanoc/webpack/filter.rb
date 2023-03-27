@@ -12,7 +12,8 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
   type :text
 
   def run(content, options = {})
-    depend_on dependable(paths: options[:depend_on])
+    depend_on dependable(paths: options[:depend_on], reject: options[:reject])
+              .map { items[_1] }
     webpack(temp_file(content))
   end
 

@@ -31,7 +31,6 @@ compile "/js/app.ts" do
   write("/js/app.js")
 end
 ```
-
 ### React, JSX
 
 An example of how to compile a React component with webpack:
@@ -60,7 +59,22 @@ be used:
 # Rules
 require "nanoc-webpack"
 compile "/js/ReactApp.jsx" do
-  filter(:webpack, depend_on: ["/js/lib", "/js/components", "/js/hooks"]
+  filter(:webpack, depend_on: ["/js/lib", "/js/components", "/js/hooks"])
+  write("/js/app.js")
+end
+```
+
+The `depend_on` option can be combined with the `reject` option to exclude
+paths from the result set. For example, you might want to include `/js/lib/`
+minus one of the directories within `/js/lib/`:
+
+```ruby
+# Rules
+require "nanoc-webpack"
+compile "/js/ReactApp.jsx" do
+  filter :webpack,
+         depend_on: ["/js/lib", "/js/components", "/js/hooks"],
+         reject: proc { |path| path.start_with?("/js/lib/foo/") }
   write("/js/app.js")
 end
 ```
