@@ -65,7 +65,7 @@ end
 
 The "depend_on" option can be combined with the "reject" option to exclude
 certain files or directories. For example, you might want to monitor `/js/lib/`
-but not include one of the directories within `/js/lib/`:
+but not include one of the directories within `/js/lib/`. Example:
 
 ```ruby
 # Rules
