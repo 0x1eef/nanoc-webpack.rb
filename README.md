@@ -45,9 +45,9 @@ end
 ### Filter options
 
 The purpose of the "depend_on" option is to inform nanoc about the
-files required or imported by an entry point. When a file, which
-is being monitored by the "depend_on" option, undergoes a change,
-nanoc will initiate a recompilation of the entry point.
+files required or imported by an entry point. When a file, being 
+monitored by the "depend_on" option undergoes a change, nanoc will 
+initiate a recompilation of the entry point.
 
 The "depend_on" option can receive an array of paths. If a path points
 to a directory, the directory is traversed recursively to locate files
