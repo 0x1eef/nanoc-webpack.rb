@@ -13,7 +13,7 @@ nanoc-webpack.rb assumes that:
 * A "node" executable is available in $PATH.
 * [npm](https://www.npmjs.com) or [yarn](https://yarnpkg.com/) are used for
   package management.
-* "webpack" exists as a dependency in package.json.
+* Both "webpack" and "webpack-cli" exist as dependencies in package.json.
 
 ## Examples
 
