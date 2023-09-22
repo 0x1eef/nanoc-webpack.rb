@@ -100,5 +100,6 @@ gem "ryo.rb", github: "0x1eef/ryo.rb", tag: "v0.3.0"
 
 ## License
 
-This project is released under the terms of the MIT license. <br>
-See [./LICENSE.txt](./LICENSE.txt) for details.
+[BSD Zero Clause](https://choosealicense.com/licenses/0bsd/).
+<br>
+See [LICENSE](./LICENSE).

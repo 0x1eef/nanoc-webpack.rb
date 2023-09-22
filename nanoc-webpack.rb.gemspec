@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.email = ["0x1eef@protonmail.com"]
   gem.homepage = "https://github.com/0x1eef/nanoc-webpack.rb#readme"
   gem.version = Nanoc::Webpack::VERSION
-  gem.licenses = ["MIT"]
+  gem.licenses = ["0BSD"]
   gem.files = `git ls-files`.split($/)
   gem.require_paths = ["lib"]
   gem.summary = "A nanoc filter that can compile textual items with webpack"
