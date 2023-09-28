@@ -6,15 +6,6 @@ nanoc-webpack.rb intends to bring the benefits of JavaScript, TypeScript and
 the webpack ecosystem to nanoc-powered websites. The filter expects to take
 an entry point as its input, and produce a webpack bundle as its output.
 
-## Requirements
-
-nanoc-webpack.rb assumes that:
-
-* A "node" executable is available in $PATH.
-* [npm](https://www.npmjs.com) or [yarn](https://yarnpkg.com/) are used for
-  package management.
-* Both "webpack" and "webpack-cli" exist as dependencies in package.json.
-
 ## Examples
 
 ### TypeScript
@@ -77,6 +68,15 @@ compile "/js/ReactApp.jsx" do
   write("/js/app.js")
 end
 ```
+
+## Requirements
+
+nanoc-webpack.rb assumes that:
+
+* A "node" executable is available in $PATH.
+* [npm](https://www.npmjs.com) or [yarn](https://yarnpkg.com/) are used for
+  package management.
+* "webpack" exists as a dependency in package.json.
 
 ## Sources
 
