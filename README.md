@@ -10,7 +10,7 @@ an entry point as its input, and produce a webpack bundle as its output.
 
 __app.ts__
 
-In the the following example `app.ts` is forwarded to webpack, and then `app.js`
+In the following example `app.ts` is forwarded to webpack, and then `app.js`
 is written to disk:
 
 ``` ruby
