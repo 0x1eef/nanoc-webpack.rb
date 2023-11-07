@@ -8,9 +8,10 @@ an entry point as its input, and produce a webpack bundle as its output.
 
 ## Examples
 
-### TypeScript
+__app.ts__
 
-An example of how to compile a TypeScript file with webpack:
+In the the following example `app.ts` is forwarded to webpack, and then `app.js`
+is written to disk:
 
 ``` ruby
 # Rules
@@ -20,30 +21,13 @@ compile "/js/app.ts" do
   write("/js/app.js")
 end
 ```
-### React
 
-An example of how to compile a React component with webpack:
+__Option: "depends_on"__
 
-```ruby
-# Rules
-require "nanoc-webpack"
-compile "/js/ReactApp.jsx" do
-  filter(:webpack)
-  write("/js/app.js")
-end
-```
-
-### Filter options
-
-The purpose of the "depend_on" option is to inform nanoc about the
-files required or imported by an entry point. When a file being 
-monitored by the "depend_on" option undergoes a change, nanoc will 
-initiate a recompilation of the entry point.
-
-The "depend_on" option can receive an array of paths. If a path points
-to a directory, the directory is traversed recursively to locate files
-and potentially other directories. It also supports glob patterns.
-The following example demonstrates the "depend_on" option:
+The filter supports a couple of options. The first option, "depends_on",
+informs nanoc what other files the entry point imports or requires. When
+a file being monitored by the "depend_on" option undergoes a change, nanoc
+will initiate a recompilation of the entry point:
 
 ```ruby
 # Rules
@@ -54,9 +38,11 @@ compile "/js/ReactApp.jsx" do
 end
 ```
 
+__Option: "reject"__
+
 The "depend_on" option can be combined with the "reject" option to exclude
 certain files or directories. For example, you might want to monitor `/js/lib/`
-but not include one of the directories within `/js/lib/`. Example:
+but not include one of the directories within `/js/lib/`:
 
 ```ruby
 # Rules
