@@ -4,7 +4,7 @@ nanoc-webpack.rb is a
 [nanoc](https://nanoc.app)
 filter
 that integrates
-[webpack](https://webpack.js.org/).
+[webpack](https://webpack.js.org/)
 into nanoc-powered websites.
 
 ## Examples
@@ -25,9 +25,8 @@ end
 
 __Option: "depends_on"__
 
-The filter supports a couple of options. The first option, "depends_on",
-informs nanoc what other files the entry point imports or requires. When
-a file being monitored by the "depend_on" option undergoes a change, nanoc
+The "depends_on" informs nanoc what files an entry point imports or requires.
+When a file being tracked by the "depend_on" option undergoes a change, nanoc
 will initiate a recompilation of the entry point:
 
 ```ruby
@@ -42,7 +41,7 @@ end
 __Option: "reject"__
 
 The "depend_on" option can be combined with the "reject" option to exclude
-certain files or directories. For example, you might want to monitor `/js/lib/`
+certain files or directories. For example, you might want to track `/js/lib/`
 but not include one of the directories within `/js/lib/`:
 
 ```ruby
