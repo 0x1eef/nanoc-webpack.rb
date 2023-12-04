@@ -1,17 +1,18 @@
 ## About
 
-nanoc-webpack.rb is a [nanoc](https://github.com/nanoc/nanoc#readme) filter
-that can compile nanoc content with [webpack](https://webpack.js.org/).
-nanoc-webpack.rb intends to bring the benefits of JavaScript, TypeScript and
-the webpack ecosystem to nanoc-powered websites. The filter expects to take
-an entry point as its input, and produce a webpack bundle as its output.
+nanoc-webpack.rb is a
+[nanoc](https://nanoc.app)
+filter
+that integrates
+[webpack](https://webpack.js.org/).
+into nanoc-powered websites.
 
 ## Examples
 
 __app.ts__
 
-In the following example `app.ts` is forwarded to webpack, and then `app.js`
-is written to disk:
+The following example forwards `app.ts` to webpack, and then `app.js` is
+written to disk:
 
 ``` ruby
 # Rules
@@ -80,8 +81,8 @@ are available as sources.
 **Gemfile**
 
 ```ruby
-gem "nanoc-webpack.rb", github: "0x1eef/nanoc-webpack.rb", tag: "v0.3.2"
-gem "ryo.rb", github: "0x1eef/ryo.rb", tag: "v0.3.0"
+gem "nanoc-webpack.rb", github: "0x1eef/nanoc-webpack.rb"
+gem "ryo.rb", github: "0x1eef/ryo.rb"
 ```
 
 ## License
