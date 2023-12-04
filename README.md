@@ -25,7 +25,7 @@ end
 
 __Option: "depends_on"__
 
-The "depends_on" informs nanoc what files an entry point imports or requires.
+The "depends_on" option informs nanoc what files an entry point imports or requires.
 When a file being tracked by the "depend_on" option undergoes a change, nanoc
 will initiate a recompilation of the entry point:
 
