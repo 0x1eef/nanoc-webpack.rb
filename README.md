@@ -5,14 +5,15 @@ nanoc-webpack.rb is a
 filter
 that integrates
 [webpack](https://webpack.js.org/)
-into nanoc-powered websites.
+into nanoc-powered websites. The filter provides a bridge that
+connects nanoc, and the JavaScript, TypeScript, and nodejs ecosystems.
 
 ## Examples
 
 __app.ts__
 
-The following example forwards `app.ts` to webpack, and then `app.js` is
-written to disk:
+The following example forwards `app.ts` to webpack, and then writes the result
+of the webpack compilation to `app.js`:
 
 ``` ruby
 # Rules
@@ -23,10 +24,10 @@ compile "/js/app.ts" do
 end
 ```
 
-__Option: "depends_on"__
+__Option: "depend_on"__
 
-The "depends_on" option informs nanoc what files an entry point imports or requires.
-When a file being tracked by the "depend_on" option undergoes a change, nanoc
+The `depend_on` option tells nanoc what files an entry point imports or requires.
+When a file being tracked by the `depend_on` option undergoes a change, nanoc
 will initiate a recompilation of the entry point:
 
 ```ruby
@@ -40,9 +41,9 @@ end
 
 __Option: "reject"__
 
-The "depend_on" option can be combined with the "reject" option to exclude
-certain files or directories. For example, you might want to track `/js/lib/`
-but not include one of the directories within `/js/lib/`:
+The `depend_on` option can be combined with the `reject` option to exclude
+certain files or directories from being tracked. For example, maybe you want
+to track `/js/lib/` but not `/js/lib/foo/`:
 
 ```ruby
 # Rules
