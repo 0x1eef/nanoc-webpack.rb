@@ -13,7 +13,7 @@ connects nanoc, and the JavaScript, TypeScript, and nodejs ecosystems.
 __app.ts__
 
 The following example forwards the entry point `app.ts` to webpack, and
-then writes the result of the webpack compilation to `app.js`.
+then writes the result of the webpack compilation to `app.js`:
 
 ``` ruby
 # Rules
