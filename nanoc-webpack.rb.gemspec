@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.licenses = ["0BSD"]
   gem.files = `git ls-files`.split($/)
   gem.require_paths = ["lib"]
-  gem.summary = "A nanoc filter that can compile textual items with webpack"
+  gem.summary = "nanoc-webpack.rb integrates webpack into nanoc."
   gem.description = gem.summary
   gem.add_runtime_dependency "ryo.rb", "~> 0.4"
   gem.add_development_dependency "yard", "~> 0.9"
