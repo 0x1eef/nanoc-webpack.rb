@@ -72,11 +72,24 @@ nanoc-webpack.rb assumes that:
 
 ## <a id='install'>Install</a>
 
+**Git**
+
 nanoc-webpack.rb is distributed as a RubyGem through its git repositories. <br>
 [GitHub](https://github.com/0x1eef/nanoc-webpack.rb),
 and
 [GitLab](https://gitlab.com/0x1eef/nanoc-webpack.rb)
 are available as sources.
+
+```ruby
+# Gemfile
+gem "nanoc-webpack.rb", github: "0x1eef/nanoc-webpack.rb", tag: "v0.4.5"
+```
+
+**Rubygems.org**
+
+nanoc-webpack.rb can also be installed via rubygems.org.
+
+    gem install nanoc-webpack.rb
 
 ## License
 
