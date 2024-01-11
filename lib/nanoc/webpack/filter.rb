@@ -23,7 +23,7 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
     depend_on dependable(paths: options[:depend_on], reject: options[:reject])
               .map { items[_1] }
     webpack temporary_file_for(content),
-            args: self.class.default_options.merge(options[:args])
+            args: self.class.default_options.merge(options[:args] || {})
   end
 
   private
