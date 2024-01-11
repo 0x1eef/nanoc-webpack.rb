@@ -11,11 +11,19 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
   identifier :webpack
   type :text
 
+  ##
+  # @return [Hash]
+  #  Returns the default command-line options given
+  #  to the webpack executable.
+  def self.default_options
+    @default_options ||= {}
+  end
+
   def run(content, options = {})
     depend_on dependable(paths: options[:depend_on], reject: options[:reject])
               .map { items[_1] }
     webpack temporary_file_for(content),
-            args: options[:args]
+            args: self.class.default_options.merge(options[:args])
   end
 
   private
