@@ -10,10 +10,12 @@ connects nanoc, and the JavaScript, TypeScript, and nodejs ecosystems.
 
 ## Examples
 
-__app.ts__
+### Defaults
 
-The following example forwards the entry point `app.ts` to webpack, and
-then writes the result of the webpack compilation to `app.js`:
+#### /js/main/App.tsx
+
+The following example forwards the entry point `/js/main/App.tsx` to webpack,
+and then writes the result to `/js/app.js`:
 
 ``` ruby
 # Rules
@@ -24,7 +26,9 @@ compile "/js/app.ts" do
 end
 ```
 
-__Option: "depend_on"__
+### Options
+
+#### Option: "depend_on"
 
 The `depend_on` option tells nanoc what files an entry point imports or requires.
 When a file being tracked by the `depend_on` option undergoes a change, nanoc
@@ -33,13 +37,13 @@ will initiate a recompilation of the entry point:
 ```ruby
 # Rules
 require "nanoc-webpack"
-compile "/js/ReactApp.jsx" do
+compile "/js/main/App.jsx" do
   filter(:webpack, depend_on: ["/js/lib", "/js/components", "/js/hooks"])
   write("/js/app.js")
 end
 ```
 
-__Option: "reject"__
+#### Option: "reject"
 
 The `depend_on` option can be combined with the `reject` option to exclude
 certain files or directories from being tracked. For example, maybe you want
@@ -48,7 +52,7 @@ to track `/js/lib/` but not `/js/lib/foo/`:
 ```ruby
 # Rules
 require "nanoc-webpack"
-compile "/js/ReactApp.jsx" do
+compile "/js/main/App.jsx" do
   filter :webpack,
          depend_on: ["/js/lib", "/js/components", "/js/hooks"],
          reject: proc { |path| path.start_with?("/js/lib/foo/") }
@@ -56,16 +60,17 @@ compile "/js/ReactApp.jsx" do
 end
 ```
 
-__Option: "args"__
+#### Option: "args"
 
 The `args` option can be used to forward command-line options directly
-to the webpack executable. See `$ webpack build --help` for the list of
-options that are available:
+to the webpack executable.
+<br>
+See `$ webpack build --help` for the list of options that are available:
 
 ```ruby
 # Rules
 require "nanoc-webpack"
-compile "/js/ReactApp.jsx" do
+compile "/js/main/App.jsx" do
   filter :webpack, args: {"--no-stats" => true}
   write("/js/app.js")
 end
@@ -77,8 +82,6 @@ end
 nanoc-webpack.rb assumes that:
 
 * A "node" executable is available in $PATH.
-* [npm](https://www.npmjs.com) or [yarn](https://yarnpkg.com/) are used for
-  package management.
 * "webpack" / "webpack-cli" exist as dependencies in package.json.
 
 ## Sources
@@ -98,7 +101,7 @@ are available as sources.
 
 ```ruby
 # Gemfile
-gem "nanoc-webpack.rb", github: "0x1eef/nanoc-webpack.rb", tag: "v0.5.4"
+gem "nanoc-webpack.rb", github: "0x1eef/nanoc-webpack.rb", tag: "v0.5.5"
 ```
 
 **Rubygems.org**
