@@ -98,7 +98,7 @@ are available as sources.
 
 ```ruby
 # Gemfile
-gem "nanoc-webpack.rb", github: "0x1eef/nanoc-webpack.rb", tag: "v0.5.1"
+gem "nanoc-webpack.rb", github: "0x1eef/nanoc-webpack.rb", tag: "v0.5.2"
 ```
 
 **Rubygems.org**
