@@ -14,17 +14,19 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
   def run(content, options = {})
     depend_on dependable(paths: options[:depend_on], reject: options[:reject])
               .map { items[_1] }
-    webpack(temp_file(content))
+    webpack temporary_file_for(content),
+            args: options[:args]
   end
 
   private
 
-  def webpack(file)
+  def webpack(file, args: [])
     system "node",
            "./node_modules/webpack/bin/webpack.js",
            "--entry", File.join(Dir.getwd, item.attributes[:content_filename]),
            "--output-path", File.dirname(file.path),
-           "--output-filename", File.basename(file.path)
+           "--output-filename", File.basename(file.path),
+           *webpack_args(cli)
     if $?.success?
       File.read(file.path).tap { file.tap(&:unlink).close }
     else
@@ -34,8 +36,18 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
     end
   end
 
-  def temp_file(content)
-    dir = File.join(Dir.getwd, "tmp", "webpack")
+  def webpack_args(args)
+    args.each_with_object([]) do |(key, value), ary|
+      if value.equal?(true)
+        ary << key
+      else
+        ary.concat [key, value.to_s]
+      end
+    end
+  end
+
+  def temporary_file_for(content)
+    dir = File.join(Dir.getwd, "tmp", "nanoc-webpack.rb")
     mkdir_p(dir) unless Dir.exist?(dir)
     file = Tempfile.new(File.basename(item.identifier.to_s), dir)
     file.write(content)

@@ -56,6 +56,22 @@ compile "/js/ReactApp.jsx" do
 end
 ```
 
+__Option: "args"__
+
+The `args` option can be used to forward command-line options directly
+to the webpack executable. See `$ webpack build --help` for the list of
+options that are available:
+
+```ruby
+# Rules
+require "nanoc-webpack"
+compile "/js/ReactApp.jsx" do
+  filter :webpack, args: {"--no-stats" => true}
+  write("/js/app.js")
+end
+```
+
+
 ## Requirements
 
 nanoc-webpack.rb assumes that:
