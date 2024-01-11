@@ -29,12 +29,12 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
   private
 
   def webpack(file, args: {})
-    system "node",
-           "./node_modules/webpack/bin/webpack.js",
-           "--entry", File.join(Dir.getwd, item.attributes[:content_filename]),
-           "--output-path", File.dirname(file.path),
-           "--output-filename", File.basename(file.path),
-           *webpack_args(args)
+    sh "node",
+       "./node_modules/webpack/bin/webpack.js",
+       "--entry", File.join(Dir.getwd, item.attributes[:content_filename]),
+       "--output-path", File.dirname(file.path),
+       "--output-filename", File.basename(file.path),
+       *webpack_args(args)
     if $?.success?
       File.read(file.path).tap { file.tap(&:unlink).close }
     else
@@ -60,5 +60,9 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
     file = Tempfile.new(File.basename(item.identifier.to_s), dir)
     file.write(content)
     file.tap(&:flush)
+  end
+
+  def sh(*args)
+    print "webpack: ", args.join(" "), "\n"
   end
 end
