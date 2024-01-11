@@ -64,5 +64,6 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
 
   def sh(*args)
     print "webpack: ", args.join(" "), "\n"
+    system(*args)
   end
 end
