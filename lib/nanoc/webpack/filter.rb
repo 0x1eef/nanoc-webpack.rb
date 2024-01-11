@@ -28,13 +28,13 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
 
   private
 
-  def webpack(file, args: [])
+  def webpack(file, args: {})
     system "node",
            "./node_modules/webpack/bin/webpack.js",
            "--entry", File.join(Dir.getwd, item.attributes[:content_filename]),
            "--output-path", File.dirname(file.path),
            "--output-filename", File.basename(file.path),
-           *webpack_args(cli)
+           *webpack_args(args)
     if $?.success?
       File.read(file.path).tap { file.tap(&:unlink).close }
     else
