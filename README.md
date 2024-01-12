@@ -15,12 +15,14 @@ connects nanoc, and the JavaScript, TypeScript, and nodejs ecosystems.
 #### /js/main/App.tsx
 
 The following example forwards the entry point `/js/main/App.tsx` to webpack,
-and then writes the result to `/js/app.js`:
+and then writes the result to `/js/app.js`. This example and all the other
+examples assume that the files `webpack.config.js`, `tsconfig.json`, and
+`package.json` already exist at the root of the project:
 
 ``` ruby
 # Rules
 require "nanoc-webpack"
-compile "/js/app.ts" do
+compile "/js/main/App.tsx" do
   filter(:webpack)
   write("/js/app.js")
 end
@@ -37,7 +39,7 @@ will initiate a recompilation of the entry point:
 ```ruby
 # Rules
 require "nanoc-webpack"
-compile "/js/main/App.jsx" do
+compile "/js/main/App.tsx" do
   filter(:webpack, depend_on: ["/js/lib", "/js/components", "/js/hooks"])
   write("/js/app.js")
 end
@@ -52,7 +54,7 @@ to track `/js/lib/` but not `/js/lib/foo/`:
 ```ruby
 # Rules
 require "nanoc-webpack"
-compile "/js/main/App.jsx" do
+compile "/js/main/App.tsx" do
   filter :webpack,
          depend_on: ["/js/lib", "/js/components", "/js/hooks"],
          reject: proc { |path| path.start_with?("/js/lib/foo/") }
@@ -65,12 +67,12 @@ end
 The `args` option can be used to forward command-line options directly
 to the webpack executable.
 <br>
-See `$ webpack build --help` for the list of options that are available:
+See `$ webpack build --help:verbose` for the list of options that are available:
 
 ```ruby
 # Rules
 require "nanoc-webpack"
-compile "/js/main/App.jsx" do
+compile "/js/main/App.tsx" do
   filter :webpack, args: {"--no-stats" => true}
   write("/js/app.js")
 end
