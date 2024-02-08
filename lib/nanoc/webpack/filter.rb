@@ -57,7 +57,7 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
   def temporary_file_for(content)
     dir = File.join(Dir.getwd, "tmp", "nanoc-webpack.rb")
     mkdir_p(dir) unless Dir.exist?(dir)
-    file = Tempfile.new(File.basename(item.identifier.to_s), dir)
+    file = Tempfile.new(File.basename(@item.identifier.to_s), dir)
     file.write(content)
     file.tap(&:flush)
   end

@@ -45,6 +45,10 @@ RSpec/DescribeClass:
   Enabled: false
 RSpec/ImplicitSubject:
   Enabled: false
+RSpec/MessageSpies:
+  Enabled: false
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
 Style/LambdaCall:
   Enabled: false
 Layout/MultilineMethodCallIndentation:
