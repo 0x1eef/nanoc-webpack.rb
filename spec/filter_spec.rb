@@ -123,7 +123,7 @@ RSpec.describe Nanoc::Webpack::Filter do
   end
 
   context "when nodejs is executed" do
-    let(:default_cmd) do
+    let(:cmdline) do
       [
         "node",
         "./node_modules/webpack/bin/webpack.js",
@@ -135,16 +135,16 @@ RSpec.describe Nanoc::Webpack::Filter do
 
     context "with default arguments" do
       it "executes nodejs" do
-        expect(filter).to receive(:system).with(*default_cmd)
+        expect(filter).to receive(:system).with(*cmdline)
         filter.run(item)
       end
     end
 
     context "with --no-cache" do
-      let(:default_cmd) { super().concat(["--no-cache"]) }
+      let(:cmdline) { super().concat(["--no-cache"]) }
 
       it "executes nodejs with an argument" do
-        expect(filter).to receive(:system).with(*default_cmd)
+        expect(filter).to receive(:system).with(*cmdline)
         filter.run(item, args: {"--no-cache" => true})
       end
     end
