@@ -129,7 +129,8 @@ RSpec.describe Nanoc::Webpack::Filter do
         "./node_modules/webpack/bin/webpack.js",
         "--entry", File.join(Dir.getwd, "test.ts"),
         "--output-path", instance_of(String),
-        "--output-filename", instance_of(String)
+        "--output-filename", instance_of(String),
+        "--cache-type", "filesystem"
       ]
     end
 

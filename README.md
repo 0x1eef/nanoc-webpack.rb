@@ -67,7 +67,10 @@ end
 The `args` option can be used to forward command-line options directly
 to the webpack executable.
 <br>
-See `$ webpack build --help:verbose` for the list of options that are available:
+`$ webpack build --help verbose` provides a list of all available options,
+and
+[Nanoc::Webpack.default_options](https://0x1eef.github.io/x/nanoc-webpack.rb/Nanoc/Webpack.html#default_options-class_method)
+returns the default options nanoc-webpack.rb will forward to webpack:
 
 ```ruby
 # Rules

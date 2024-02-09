@@ -12,18 +12,23 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
   type :text
 
   ##
+  # @example
+  #   Nanoc::Webpack.default_options.merge!(
+  #     "--cache-type" => "memory"
+  #   )
+  #
   # @return [Hash]
-  #  Returns the default command-line options given
-  #  to the webpack executable.
+  #  Returns the default command-line options given to webpack.
   def self.default_options
-    @default_options ||= {}
+    @default_options ||= {"--cache-type" => "filesystem"}
   end
 
   def run(content, options = {})
+    args = options[:args] || options["args"] || {}
     depend_on dependable(paths: options[:depend_on], reject: options[:reject])
               .map { items[_1] }
     webpack temporary_file_for(content),
-            args: self.class.default_options.merge(options[:args] || {})
+            args: self.class.default_options.merge(args)
   end
 
   private
