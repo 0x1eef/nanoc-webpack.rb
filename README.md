@@ -81,14 +81,6 @@ compile "/js/main/App.tsx" do
 end
 ```
 
-
-## Requirements
-
-nanoc-webpack.rb assumes that:
-
-* A "node" executable is available in $PATH.
-* "webpack" / "webpack-cli" exist as dependencies in package.json.
-
 ## Cache
 
 By default nanoc-webpack.rb forwards `--cache-type filesystem` to the
@@ -106,6 +98,13 @@ Nanoc::Webpack
   .default_options
   .delete("--cache-type")
 ```
+
+## Requirements
+
+nanoc-webpack.rb assumes that:
+
+* A "node" executable is available in $PATH.
+* "webpack" / "webpack-cli" exist as dependencies in package.json.
 
 ## Sources
 
