@@ -89,6 +89,24 @@ nanoc-webpack.rb assumes that:
 * A "node" executable is available in $PATH.
 * "webpack" / "webpack-cli" exist as dependencies in package.json.
 
+## Cache
+
+By default nanoc-webpack.rb forwards `--cache-type filesystem` to the
+webpack executable. Builds are usually faster with it turned on, but
+it can bring unexpected results when `package.json` or other configuration
+files are updated. In case that happens, you might need to remove the cache:
+
+    $ rm -rf node_modules/.cache/
+
+Alternatively, you can disable the use of the filesystem cache altogether:
+
+``` ruby
+# Rules
+Nanoc::Webpack
+  .default_options
+  .delete("--cache-type")
+```
+
 ## Sources
 
 * [Source code (GitHub)](https://github.com/0x1eef/nanoc-webpack.rb)
