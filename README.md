@@ -13,7 +13,7 @@ and the JavaScript, TypeScript, and nodejs ecosystems.
 **Defaults**
 
 The following example forwards the entry point `/js/main/App.tsx`
-to webpack, and then writes the result to `/js/main/app.js`:
+to webpack. The result is then written to `/js/main/app.js`:
 
 ``` ruby
 # Rules
