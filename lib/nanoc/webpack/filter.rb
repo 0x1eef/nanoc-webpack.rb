@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ##
-# Compiles a textual nanoc item with webpack.
+# Compiles a nanoc item with webpack.
 class Nanoc::Webpack::Filter < Nanoc::Filter
   require_relative "filter/dependable"
   Error = Class.new(RuntimeError)
@@ -23,23 +23,31 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
     @default_options ||= {"--cache-type" => "filesystem"}
   end
 
+  ##
+  # @param [String] content
+  #  The contents of a file.
+  #
+  # @param [Hash] options
+  #  A hash of options.
+  #
+  # @return [void]
   def run(content, options = {})
-    args = options[:args] || options["args"] || {}
+    cli = options[:cli] || {}
     depend_on dependable(paths: options[:depend_on], reject: options[:reject])
               .map { items[_1] }
     webpack temporary_file_for(content),
-            args: self.class.default_options.merge(args)
+            cli: self.class.default_options.merge(cli)
   end
 
   private
 
-  def webpack(file, args: {})
+  def webpack(file, cli: {})
     sh "node",
        "./node_modules/webpack/bin/webpack.js",
        "--entry", File.join(Dir.getwd, item.attributes[:content_filename]),
        "--output-path", File.dirname(file.path),
        "--output-filename", File.basename(file.path),
-       *webpack_args(args)
+       *webpack_args(cli)
     if $?.success?
       File.read(file.path).tap { file.tap(&:unlink).close }
     else

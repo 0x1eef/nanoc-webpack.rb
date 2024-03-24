@@ -146,7 +146,7 @@ RSpec.describe Nanoc::Webpack::Filter do
 
       it "executes nodejs with an argument" do
         expect(filter).to receive(:system).with(*cmdline)
-        filter.run(item, args: {"--no-cache" => true})
+        filter.run(item, cli: {"--no-cache" => true})
       end
     end
   end
