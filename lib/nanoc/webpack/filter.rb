@@ -4,9 +4,9 @@
 # Compiles a nanoc item with webpack.
 class Nanoc::Webpack::Filter < Nanoc::Filter
   require_relative "filter/dependable"
-  Error = Class.new(RuntimeError)
   include FileUtils
   include Dependable
+  Error = Class.new(RuntimeError)
 
   identifier :webpack
   type :text
@@ -18,7 +18,7 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
   #   )
   #
   # @return [Hash]
-  #  Returns the default command-line options given to webpack.
+  #  Returns the default command-line options forwarded to webpack.
   def self.default_options
     @default_options ||= {"--cache-type" => "filesystem"}
   end
@@ -32,16 +32,16 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
   #
   # @return [void]
   def run(content, options = {})
-    cli = options[:cli] || {}
-    depend_on dependable(paths: options[:depend_on], reject: options[:reject])
+    options = Ryo.from(options)
+    depend_on dependable(paths: options.depend_on, reject: options.reject)
               .map { items[_1] }
-    webpack temporary_file_for(content),
-            cli: self.class.default_options.merge(cli)
+    webpack temporary_file(content),
+            cli: self.class.default_options.merge(options.cli || {})
   end
 
   private
 
-  def webpack(file, cli: {})
+  def webpack(file, cli:)
     sh "node",
        "./node_modules/webpack/bin/webpack.js",
        "--entry", File.join(Dir.getwd, item.attributes[:content_filename]),
@@ -67,7 +67,7 @@ class Nanoc::Webpack::Filter < Nanoc::Filter
     end
   end
 
-  def temporary_file_for(content)
+  def temporary_file(content)
     dir = File.join(Dir.getwd, "tmp", "nanoc-webpack.rb")
     mkdir_p(dir) unless Dir.exist?(dir)
     file = Tempfile.new(File.basename(@item.identifier.to_s), dir)

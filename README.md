@@ -13,7 +13,7 @@ and the JavaScript, TypeScript, and nodejs ecosystems.
 **Defaults**
 
 The following example forwards the entry point `/js/main/App.tsx`
-to webpack. The result is then written to `/js/main/app.js`:
+to webpack. <br> The result is then written to `/js/main/app.js`:
 
 ``` ruby
 # Rules
@@ -80,6 +80,11 @@ end
 nanoc-webpack.rb can also be installed via rubygems.org.
 
     gem install nanoc-webpack.rb
+
+## Sources
+
+* [GitHub](https://github.com/0x1eef/nanoc-webpack.rb#readme)
+* [GitLab](https://gitlab.com/0x1eef/nanoc-webpack.rb#about)
 
 ## License
 
