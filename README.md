@@ -77,7 +77,7 @@ end
 
 **Rubygems.org**
 
-nanoc-webpack.rb can also be installed via rubygems.org.
+nanoc-webpack.rb can be installed via rubygems.org.
 
     gem install nanoc-webpack.rb
 
