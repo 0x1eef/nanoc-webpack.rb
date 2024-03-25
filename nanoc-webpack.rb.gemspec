@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.summary = "nanoc-webpack.rb integrates webpack into nanoc."
   gem.description = gem.summary
-  gem.add_runtime_dependency "ryo.rb", "~> 0.4"
+  gem.add_runtime_dependency "ryo.rb", "~> 0.5"
   gem.add_development_dependency "yard", "~> 0.9"
   gem.add_development_dependency "redcarpet", "~> 3.5"
   gem.add_development_dependency "rspec", "~> 3.10"
