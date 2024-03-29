@@ -5,7 +5,7 @@ nanoc-webpack.rb is a
 filter that integrates
 [webpack](https://webpack.js.org/)
 into nanoc. <br>
-The filter acts as a  bridge that connects nanoc,
+The filter acts as a bridge that connects nanoc,
 and the JavaScript, TypeScript, and nodejs ecosystems.
 
 ## Examples
@@ -56,19 +56,18 @@ compile "/js/main/App.tsx" do
 end
 ```
 
-**Option: cli**
+**Option: argv**
 
-The `cli` option forwards command-line options directly
+The `argv` option forwards command-line options directly
 to the webpack executable. <br>
-[Nanoc::Webpack.default_options](https://0x1eef.github.io/x/nanoc-webpack.rb/Nanoc/Webpack.html#default_options-class_method)
-returns the default options nanoc-webpack.rb will
-forward to webpack:
+[Nanoc::Webpack.default_argv](https://0x1eef.github.io/x/nanoc-webpack.rb/Nanoc/Webpack.html#default_argv-class_method)
+returns the default command-line options forwarded to webpack:
 
 ```ruby
 # Rules
 require "nanoc-webpack"
 compile "/js/main/App.tsx" do
-  filter(:webpack, cli: {"--no-stats" => true})
+  filter(:webpack, argv: ["--node-env", "production"])
   write("/js/main/app.js")
 end
 ```

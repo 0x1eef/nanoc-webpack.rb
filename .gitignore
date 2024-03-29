@@ -2,4 +2,5 @@
 .gems/
 /spec/fakefs/
 /pkg/
+/tmp/
 Gemfile.lock

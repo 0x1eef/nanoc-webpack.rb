@@ -136,7 +136,8 @@ RSpec.describe Nanoc::Webpack::Filter do
 
     context "with default arguments" do
       it "executes nodejs" do
-        expect(filter).to receive(:system).with(*cmdline)
+        expect(Kernel).to receive(:spawn).with(*cmdline, instance_of(Hash))
+        expect(Process).to receive(:wait)
         filter.run(item)
       end
     end
@@ -145,8 +146,9 @@ RSpec.describe Nanoc::Webpack::Filter do
       let(:cmdline) { super().concat(["--no-cache"]) }
 
       it "executes nodejs with an argument" do
-        expect(filter).to receive(:system).with(*cmdline)
-        filter.run(item, cli: {"--no-cache" => true})
+        expect(Kernel).to receive(:spawn).with(*cmdline, instance_of(Hash))
+        expect(Process).to receive(:wait)
+        filter.run(item, argv: ["--no-cache"])
       end
     end
   end
