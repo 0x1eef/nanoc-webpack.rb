@@ -43,6 +43,7 @@ module Nanoc::Webpack
              "--output-filename", File.basename(path),
              *default_argv, *(options.argv || [])],
             log: File.join(tmpdir, "webpack.log")
+      File.read(path)
     ensure
       rm(path)
     end
