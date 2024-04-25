@@ -67,7 +67,7 @@ returns the default command-line options forwarded to webpack:
 # Rules
 require "nanoc-webpack"
 compile "/js/main/App.tsx" do
-  filter(:webpack, argv: ["--node-env", "production"])
+  filter(:webpack, argv: ["--mode", "production"])
   write("/js/main/app.js")
 end
 ```

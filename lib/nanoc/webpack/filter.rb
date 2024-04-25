@@ -15,12 +15,12 @@ module Nanoc::Webpack
 
     ##
     # @example
-    #   Nanoc::Webpack.default_argv.replace ["--cache-type", "memory"]
+    #   Nanoc::Webpack.default_argv.concat ["--cache-type", "filesystem"]
     #
     # @return [Array<String>]
     #  The default command-line options forwarded to webpack.
     def self.default_argv
-      @default_argv ||= ["--cache-type", "filesystem"]
+      @default_argv ||= []
     end
 
     ##
