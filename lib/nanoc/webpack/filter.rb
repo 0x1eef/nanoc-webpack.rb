@@ -60,7 +60,7 @@ module Nanoc::Webpack
       mkdir_p(tmpdir)
       name = item.identifier.to_s
       file = Tempfile.new(
-        [ File.basename(name), File.extname(name).sub(/\A\.(ts|tsx)\z/, '.js') ],
+        [ File.basename(name), File.extname(name).sub(/\A\.(ts|tsx|jsx)\z/, '.js') ],
         tmpdir
       )
       file.write(content)
