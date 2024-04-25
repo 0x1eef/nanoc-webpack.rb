@@ -37,7 +37,7 @@ module Nanoc::Webpack
       depend_on dependable(paths: options.depend_on, reject: options.reject)
                   .map { items[_1] }
       argv = [*(options.argv || []), *default_argv]
-      scan_argv(argv)
+      scan(argv)
       spawn "node",
             ["./node_modules/webpack/bin/webpack.js",
              *argv,
@@ -67,7 +67,7 @@ module Nanoc::Webpack
       File.join(Dir.getwd, "tmp", "webpack")
     end
 
-    def scan_argv(argv)
+    def scan(argv)
       options = argv.filter_map { _1.start_with?("-") ? _1 : nil }
       builtins = %w[--entry --output-path --output-filename]
       options
