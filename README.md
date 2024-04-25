@@ -72,7 +72,7 @@ compile "/js/main/App.tsx" do
 end
 ```
 
-## <a id='install'>Install</a>
+## Install
 
 **Rubygems.org**
 
