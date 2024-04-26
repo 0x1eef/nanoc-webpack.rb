@@ -82,8 +82,8 @@ nanoc-webpack.rb can be installed via rubygems.org.
 
 ## See also
 
-* [0x1eef/terry.reflectslight.io](https://github.com/0x1eef/terry.reflectslight.io)
-  is a simple nanoc application that uses nanoc-webpack.rb.
+* [0x1eef/terry.reflectslight.io](https://github.com/0x1eef/terry.reflectslight.io) <br>
+  A simple nanoc application that uses nanoc-webpack.rb.
 
 ## Sources
 
