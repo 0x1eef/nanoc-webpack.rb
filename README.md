@@ -58,10 +58,10 @@ end
 
 **Option: argv**
 
-The `argv` option forwards command-line options directly
+The `argv` option forwards command line arguments directly
 to the webpack executable. <br>
 [Nanoc::Webpack.default_argv](https://0x1eef.github.io/x/nanoc-webpack.rb/Nanoc/Webpack.html#default_argv-class_method)
-returns the default command-line options forwarded to webpack:
+returns the default command line arguments forwarded to webpack:
 
 ```ruby
 # Rules

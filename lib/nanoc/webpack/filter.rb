@@ -14,21 +14,23 @@ module Nanoc::Webpack
     type :text
 
     ##
+    # The default argv for webpack
+    #
     # @example
     #   Nanoc::Webpack.default_argv.concat ["--cache-type", "filesystem"]
     #
     # @return [Array<String>]
-    #  The default command-line options forwarded to webpack.
+    #  Default argv for webpack
     def self.default_argv
       @default_argv ||= []
     end
 
     ##
     # @param [String] content
-    #  The contents of a file.
+    #  The contents of a file
     #
     # @param [Hash] options
-    #  A hash of options.
+    #  A hash of options
     #
     # @return [void]
     def run(content, options = {})
