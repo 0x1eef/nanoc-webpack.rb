@@ -35,7 +35,7 @@ module Nanoc::Webpack
     # @return [void]
     def run(content, options = {})
       options = Ryo.from(options)
-      path = temporary_file(content).path
+      file = temporary_file(content)
       depend_on dependable(paths: options.depend_on, reject: options.reject)
                   .map { items[_1] }
       argv = [*(options.argv || []), *default_argv]
@@ -44,11 +44,11 @@ module Nanoc::Webpack
             ["./node_modules/webpack/bin/webpack.js",
              *argv,
              "--entry", File.join(Dir.getwd, item.attributes[:content_filename]),
-             "--output-path", File.dirname(path),
-             "--output-filename", File.basename(path)]
-      File.read(path)
+             "--output-path", File.dirname(file.path),
+             "--output-filename", File.basename(file.path)]
+      File.read(file.path)
     ensure
-      rm(path)
+      file ? file.tap(&:unlink).close : nil
     end
 
     private
@@ -58,18 +58,14 @@ module Nanoc::Webpack
     end
 
     def temporary_file(content)
-      mkdir_p(tmpdir)
+      tmpdir = File.join(Dir.getwd, "tmp", "webpack")
       name = item.identifier.to_s
       file = Tempfile.new(
         [ File.basename(name), File.extname(name).sub(/\A\.(ts|tsx|jsx)\z/, '.js') ],
-        tmpdir
+        mkdir_p(tmpdir).last
       )
       file.write(content)
       file.tap(&:flush)
-    end
-
-    def tmpdir
-      File.join(Dir.getwd, "tmp", "webpack")
     end
 
     def scan(argv)
