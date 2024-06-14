@@ -1,17 +1,30 @@
 module Nanoc::Webpack
   module Spawn
+    require "test-cmd"
     Error = Class.new(RuntimeError)
-    def spawn(exe, argv, log:)
-      Kernel.spawn(
-        exe, *argv, { STDOUT => log, STDERR => log }
-      )
-      Process.wait
-      unless $?.success?
+
+    ##
+    # Spawns a process
+    #
+    # @param [String] exe
+    #  The path to an executable
+    #
+    # @param [Array<String>] argv
+    #  An array of command line arguments
+    #
+    # @return [Integer]
+    #  Returns the exit code of the spawned process
+    def spawn(exe, argv)
+      r = cmd(exe, *argv)
+      if r.success?
+        r.exit_status
+      else
         raise Error,
-              "#{File.basename(exe)} exited unsuccessfully " \
-              "(exit code: #{$?.exitstatus}, " \
-              "item: #{item.identifier}, " \
-              "log: #{log.gsub(Dir.getwd, '')[1..]})",
+              "#{File.basename(exe)} exited unsuccessfully\n" \
+              "(item: #{item.identifier})\n" \
+              "(exit code: #{r.exit_status})\n" \
+              "(stdout: #{r.stdout.gsub(Dir.getwd, '')[1..]&.chomp})\n" \
+              "(stderr: #{r.stderr.gsub(Dir.getwd, '')[1..]&.chomp})\n",
               []
       end
     end

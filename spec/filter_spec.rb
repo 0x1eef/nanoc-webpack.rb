@@ -127,33 +127,29 @@ RSpec.describe Nanoc::Webpack::Filter do
       [
         "--entry", File.join(Dir.getwd, "test.ts"),
         "--output-path", instance_of(String),
-        "--output-filename", instance_of(String),
+        "--output-filename", instance_of(String)
       ]
     end
 
     context "with default arguments" do
       it "executes nodejs" do
-        expect(Kernel).to receive(:spawn).with(
+        expect(filter).to receive(:cmd).with(
                             "node",
                             "./node_modules/webpack/bin/webpack.js",
                             *cmdline,
-                            instance_of(Hash)
-                          )
-        expect(Process).to receive(:wait)
+                          ).and_return(Ryo('success?' => true))
         filter.run(item)
       end
     end
 
     context "with --no-cache" do
       it "executes nodejs with an argument" do
-        expect(Kernel).to receive(:spawn).with(
+        expect(filter).to receive(:cmd).with(
                             "node",
                             "./node_modules/webpack/bin/webpack.js",
                             "--no-cache",
                             *cmdline,
-                            instance_of(Hash)
-                          )
-        expect(Process).to receive(:wait)
+                          ).and_return(Ryo('success?' => true))
         filter.run(item, argv: ["--no-cache"])
       end
     end
