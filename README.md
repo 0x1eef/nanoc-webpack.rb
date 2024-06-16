@@ -5,7 +5,7 @@ nanoc-webpack.rb is a
 filter that adds
 [webpack](https://webpack.js.org/)
 support to nanoc. <br>
-The filter connects nanoc to the the JavaScript, TypeScript,
+The filter connects nanoc to the JavaScript, TypeScript,
 and nodejs ecosystems.
 
 ## Examples
