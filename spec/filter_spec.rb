@@ -136,8 +136,8 @@ RSpec.describe Nanoc::Webpack::Filter do
         expect(filter).to receive(:cmd).with(
                             "node",
                             "./node_modules/webpack/bin/webpack.js",
-                            *cmdline,
-                          ).and_return(Ryo('success?' => true))
+                            *cmdline
+                          ).and_return(Ryo("success?" => true))
         filter.run(item)
       end
     end
@@ -148,8 +148,8 @@ RSpec.describe Nanoc::Webpack::Filter do
                             "node",
                             "./node_modules/webpack/bin/webpack.js",
                             "--no-cache",
-                            *cmdline,
-                          ).and_return(Ryo('success?' => true))
+                            *cmdline
+                          ).and_return(Ryo("success?" => true))
         filter.run(item, argv: ["--no-cache"])
       end
     end

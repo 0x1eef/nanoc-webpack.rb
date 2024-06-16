@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Nanoc::Webpack
   module Spawn
     require "test-cmd"
@@ -23,8 +25,8 @@ module Nanoc::Webpack
               "#{File.basename(exe)} exited unsuccessfully\n" \
               "(item: #{item.identifier})\n" \
               "(exit code: #{r.exit_status})\n" \
-              "(stdout: #{r.stdout.gsub(Dir.getwd, '')[1..]&.chomp})\n" \
-              "(stderr: #{r.stderr.gsub(Dir.getwd, '')[1..]&.chomp})\n",
+              "(stdout: #{r.stdout.gsub(Dir.getwd, "")[1..]&.chomp})\n" \
+              "(stderr: #{r.stderr.gsub(Dir.getwd, "")[1..]&.chomp})\n",
               []
       end
     end

@@ -20,11 +20,11 @@ AllCops:
 # Enabled
 Style/FrozenStringLiteralComment:
   Enabled: true
-Layout/ArrayAlignment:
-  Enabled: false
 
 ##
 # Disabled
+
+# RSpec
 RSpec/FilePath:
   Enabled: false
 RSpec/NestedGroups:
@@ -49,9 +49,25 @@ RSpec/MessageSpies:
   Enabled: false
 RSpec/MultipleMemoizedHelpers:
   Enabled: false
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/StubbedMock:
+  Enabled: false
+
+# Style
 Style/LambdaCall:
   Enabled: false
+Style/SafeNavigation:
+  Enabled: false
+Layout/ArrayAlignment:
+  Enabled: false
+
+# Layout
 Layout/MultilineMethodCallIndentation:
   Enabled: false
 Layout/ArgumentAlignment:
+  Enabled: false
+Layout/FirstArrayElementIndentation:
+  Enabled: false
+Layout/FirstArgumentIndentation:
   Enabled: false
