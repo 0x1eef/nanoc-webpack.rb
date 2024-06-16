@@ -2,11 +2,10 @@
 
 nanoc-webpack.rb is a
 [nanoc](https://nanoc.app)
-filter that integrates
+filter that adds
 [webpack](https://webpack.js.org/)
-into nanoc. <br>
-The filter acts as a bridge that connects nanoc,
-and the JavaScript, TypeScript, and nodejs ecosystems.
+support to nanoc. The filter connects nanoc to the
+the JavaScript, TypeScript, and nodejs ecosystems.
 
 ## Examples
 
@@ -74,9 +73,7 @@ end
 
 ## Install
 
-**Rubygems.org**
-
-nanoc-webpack.rb can be installed via rubygems.org
+nanoc-webpack.rb can be installed via rubygems.org:
 
     gem install nanoc-webpack.rb
 
@@ -92,6 +89,6 @@ nanoc-webpack.rb can be installed via rubygems.org
 
 ## License
 
-[BSD Zero Clause](https://choosealicense.com/licenses/0bsd/).
+[BSD Zero Clause](https://choosealicense.com/licenses/0bsd/)
 <br>
-See [LICENSE](./LICENSE).
+See [LICENSE](./LICENSE)
