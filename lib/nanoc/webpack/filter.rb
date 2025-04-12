@@ -15,10 +15,8 @@ module Nanoc::Webpack
 
     ##
     # The default argv for webpack
-    #
     # @example
     #   Nanoc::Webpack.default_argv.concat ["--cache-type", "filesystem"]
-    #
     # @return [Array<String>]
     #  Default argv for webpack
     def self.default_argv
@@ -28,10 +26,8 @@ module Nanoc::Webpack
     ##
     # @param [String] content
     #  The contents of a file
-    #
     # @param [Hash] options
     #  A hash of options
-    #
     # @return [void]
     def run(content, options = {})
       options = Ryo.from(options)

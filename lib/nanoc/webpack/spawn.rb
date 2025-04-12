@@ -7,19 +7,16 @@ module Nanoc::Webpack
 
     ##
     # Spawns a process
-    #
     # @param [String] exe
     #  The path to an executable
-    #
     # @param [Array<String>] argv
     #  An array of command line arguments
-    #
     # @return [Integer]
     #  Returns the exit code of the spawned process
     def spawn(exe, argv)
       r = cmd(exe, *argv)
       if r.not_found?
-        raise Nanoc::Tidy::Error, "The #{exe} executable was not found"
+        raise Error, "The #{exe} executable was not found"
       elsif r.success?
         r.exit_status
       else
